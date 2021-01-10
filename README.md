@@ -60,7 +60,7 @@ usuários são "super-heróis". A aplicação deve conter as seguintes funcional
 
 - Exemplo de implementação do frontend:
 
-![alt text](https://github.com/FabianaTavares/desafio-movinstagram-angular/blob/main/assets/exemplo_implementacao_readme.PNG)
+![alt text](https://github.com/FabianaTavares/desafio-final-movinstagram-angular/blob/main/assets/exemplo_implementacao_readme.PNG)
 
 - Lembre-se de que as regras de interface ficam a critério do aluno, ou seja, **não será exigida a mesma interface da imagem acima.**
 - O mais importante é a apresentação correta dos dados que estão vinculados entre
@@ -79,14 +79,14 @@ Os alunos deverão desempenhar as seguintes atividades:
 1. **Pré-requisitos –** O aluno já deve ter instalado o **Node.js** (recomenda-se a versão 14.x) e o **Yarn** (recomenda-se a versão 1.22.4 ou superior, desde que se mantenha a versão 1.x) em seu computador.
 2. Instalar o **back end** da aplicação, que **será fornecido pelo professor**, conforme imagem abaixo:
 
-![alt text](https://github.com/FabianaTavares/desafio-movinstagram-angular/blob/main/assets/conteudo_backend.PNG)
+![alt text](https://github.com/FabianaTavares/desafio-final-movinstagram-angular/blob/main/assets/conteudo_backend.PNG)
 
 - Arquivo **allPosts.json** – contém todos os dados necessários, que se subdividem em **posts, comments, likes e bestFriends. Observação importante:** Há uma ligação interna entre **posts, comments e likes,** que o aluno deve interpretar para implementar a aplicação front end. Estude os dados do back end e entenda esta ligação!
 - Arquivo **package.json** – contém as dependências da aplicação (json-server) e o script de inicialização do backend.
 
 3. Acesse a pasta raiz do back end e execute o comando **yarn** para instalar as dependências localmente. Em seguida, inicialize o back end com o comando **yarn start**. Isso vai gerar 4 URL's que deverão ser acessadas pelo front end, conforme imagem abaixo:
 
-![alt text](https://github.com/FabianaTavares/desafio-movinstagram-angular/blob/main/assets/inicializacao_backend.PNG)
+![alt text](https://github.com/FabianaTavares/desafio-final-movinstagram-angular/blob/main/assets/inicializacao_backend.PNG)
 
 4. Após inicializar o back end, teste o acesso aos seguintes links e estude os dados.
 
@@ -100,19 +100,19 @@ Os alunos deverão desempenhar as seguintes atividades:
    c. Utilize a função v4 da biblioteca [uuid](https://github.com/uuidjs/uuid) para criar os id's dos comentários.
    d. Identifique visualmente o usuário ativo.
 
-   ![alt text](https://github.com/FabianaTavares/desafio-movinstagram-angular/blob/main/assets/usuario_ativo.PNG)
+   ![alt text](https://github.com/FabianaTavares/desafio-final-movinstagram-angular/blob/main/assets/usuario_ativo.PNG)
 
    e. Exiba quem curtiu determinado post através da prop title, presente na grande maioria das tags HTML. Essa prop é exibida quando passamos o mouse sobre o componente.
 
-   ![alt text](https://github.com/FabianaTavares/desafio-movinstagram-angular/blob/main/assets/proptitle_item_e.PNG)
+   ![alt text](https://github.com/FabianaTavares/desafio-final-movinstagram-angular/blob/main/assets/proptitle_item_e.PNG)
 
    f. Certifique-se de que o comentário inserido seja feito pelo usuário ativo.
 
-   ![alt text](https://github.com/FabianaTavares/desafio-movinstagram-angular/blob/main/assets/item_f.PNG)
+   ![alt text](https://github.com/FabianaTavares/desafio-final-movinstagram-angular/blob/main/assets/item_f.PNG)
 
    g. Persista bem as regras de curtidas, ou seja, o mesmo usuário não pode curtir um post mais de uma vez. Faça o toggle, que curte/descurte o post conforme o seu estado atual (curtido fica descurtido e vice-versa). Estude como as curtidas (likes) estão dispostas no back end.
 
-   ![alt text](https://github.com/FabianaTavares/desafio-movinstagram-angular/blob/main/assets/item_g.PNG)
+   ![alt text](https://github.com/FabianaTavares/desafio-final-movinstagram-angular/blob/main/assets/item_g.PNG)
 
    h. Lembre-se mais uma vez de que os dados que serão fornecidos para vocês são aleatórios e não refletem os prints desse documento. Eu fiz um programa para gerar esses dados aleatoriamente. A cada nova oferta do bootcamp, novos dados aleatórios serão gerados e um novo questionário será elaborado.
    i. Vocês são responsáveis por criar a interface, layout, css, etc. da forma que preferirem. Não há nenhuma exigência ou regra quanto a isso.
