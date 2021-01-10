@@ -1,0 +1,28 @@
+<div class="row" *ngFor="let item of postsListas; let i = index">
+  <div class="col-md-12">
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="{{ item.picture }}" alt="{{item.user}}">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <div class="row">
+            <div class="col s12">
+              <div class="col s5">
+                <img src="assets/img/superman.png" alt="superman" class="circle responsive-img image-tabs">
+                <span class="title-visualizar">superman</span>
+              </div>
+              <div class="col s7 titulo-post">
+                {{item.title}}
+              </div>
+            </div>
+          </div>
+          <app-comments-collection [idPostComentsItem]="item"></app-comments-collection>
+        </div>
+        <div class="card-action">
+          <a href="#">This is a link</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
