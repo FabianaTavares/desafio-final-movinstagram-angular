@@ -60,7 +60,7 @@ usuários são "super-heróis". A aplicação deve conter as seguintes funcional
 
 - Exemplo de implementação do frontend:
 
-![alt text](https://github.com/FabianaTavares/desafio-final-movinstagram-angular/blob/main/assets/exemplo_implementacao_readme.PNG)
+![alt text](https://github.com/FabianaTavares/desafio-final-movinstagram-angular/blob/main/frontend/movie-intagram/src/assets/img/exemplo_implementacao_readme.PNG)
 
 - Lembre-se de que as regras de interface ficam a critério do aluno, ou seja, **não será exigida a mesma interface da imagem acima.**
 - O mais importante é a apresentação correta dos dados que estão vinculados entre
