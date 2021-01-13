@@ -1,6 +1,5 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
-import { PostsDTO } from '../../models/movie-posts.model';
-import { QtdsDTO } from '../../models/movie-qtds.model';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { TabsetComponent } from 'ngx-bootstrap/tabs';
 import { MovieService } from '../../services/movie.service';
 
 @Component({
@@ -19,10 +18,15 @@ export class HeaderComponent implements OnInit {
   @Input()
   qtdCurtidas!: number;
 
+
+  @ViewChild('staticTabs', { static: false }) staticTabs!: TabsetComponent;
+
+  activeElement: number = 1;
+
   listAtivos: any[] = [
-    { img: "assets/img/batman.png", user: "batman" },
-    { img: "assets/img/superman.png", user: "superman" },
-    { img: "assets/img/wonderWoman.png", user: "wonderWoman" }
+    { id:1, img: "assets/img/batman.png", user: "batman" },
+    { id:2, img: "assets/img/superman.png", user: "superman"},
+    { id:3, img: "assets/img/wonderWoman.png", user: "wonderWoman" }
   ];
 
   constructor(
@@ -33,14 +37,9 @@ export class HeaderComponent implements OnInit {
 
   }
 
-  selectTab(tab: any) {
-    console.log('oi');
-    console.log(tab);
-    this.listAtivos.forEach((tab) => {
-      console.log(tab);
-      tab.active = false;
-    });
-    tab.active = true
+  selectTab(index: number, id: number) {
+    this.activeElement = index;
+    //verificar como vou linkar pra mudar o usuário logado.
   }
 
 }

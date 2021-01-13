@@ -2,22 +2,20 @@
 <div class="progress" *ngIf="loading">
   <div class="indeterminate"></div>
 </div>
-<div class="row">
-  <div class="col s12">
-    <div class="card-panel">
-      <span class="flow-text">
-        <h5 class="center-align">MovieStagram</h5>
-      </span>
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+        <h2 class="card-title">MovieInstagram</h2>
+        <div class="divider"></div>
+        <div class="section">
+          <app-header
+            [qtdPosts]="qtdPosts"
+            [qtdComentarios]="qtdComentarios"
+            [qtdCurtidas]="qtdCurtidas" ></app-header>
+        </div>
       <div class="divider"></div>
       <div class="section">
-        <app-header
-          [qtdPosts]="qtdPosts"
-          [qtdComentarios]="qtdComentarios"
-          [qtdCurtidas]="qtdCurtidas" ></app-header>
-      </div>
-      <div class="divider"></div>
-      <div class="section">
-        <app-posts-timeline [postsListas]="postsListas"></app-posts-timeline>
+        <!-- <app-posts-timeline [postsListas]="postsListas"></app-posts-timeline> -->
       </div>
     </div>
   </div>

@@ -12,7 +12,8 @@ import { AppRoutingModule } from '../app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { PostsTimelineComponent } from './components/posts-timeline/posts-timeline.component';
 import { CommentsCollectionComponent } from './components/comments-collection/comments-collection.component';
-
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { TabsModule } from 'ngx-bootstrap/tabs';
 @NgModule({
   declarations: [
     TimelineComponent,
@@ -29,12 +30,14 @@ import { CommentsCollectionComponent } from './components/comments-collection/co
     RouterModule,
     AppRoutingModule,
     HttpClientModule,
+    TooltipModule.forRoot(),
+    TabsModule.forRoot(),
   ],
   exports: [
     TimelineComponent,
     HeaderComponent,
     PostsTimelineComponent,
-    CommentsCollectionComponent
+    CommentsCollectionComponent,
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

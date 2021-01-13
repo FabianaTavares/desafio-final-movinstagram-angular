@@ -7,33 +7,25 @@
   margin-left: 150px;
 }
 
-.tabs {
-  height: 70px;
-  background-color: transparent;
-}
-
-.tab {
-  height: 70px;
-  margin-top: 10px;
-}
-
-.image-tabs {
-  height: 50px;
-}
-
 .title-visualizar {
   margin-top: 10px;
-  vertical-align: top;
   text-align: center;
   margin-left: 10px;
 
 }
 
-.tabs .tab {
-  padding-left: 10px;
+.alinhar {
+  padding: 10px;
 }
 
-.active {
-  color: white;
-  background-color: red;
+.active .alinkdesabled {
+ color: white;
+ background-color: lightslategray;
+ border-radius: 2%;
+  cursor: pointer;
+}
+
+.alinkdesabled {
+  color: lightslategray;
+  cursor: pointer;
 }

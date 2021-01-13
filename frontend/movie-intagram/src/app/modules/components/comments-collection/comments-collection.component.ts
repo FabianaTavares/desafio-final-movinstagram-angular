@@ -52,6 +52,7 @@ export class CommentsCollectionComponent implements OnInit {
           listUsers.push(u.user);
         });
         this.usersLikes = listUsers;
+        console.log(this.usersLikes);
       }
     );
   }
