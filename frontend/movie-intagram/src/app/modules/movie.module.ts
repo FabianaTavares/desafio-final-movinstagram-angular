@@ -11,7 +11,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { PostsTimelineComponent } from './components/posts-timeline/posts-timeline.component';
-import { CommentsCollectionComponent } from './components/comments-collection/comments-collection.component';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 @NgModule({
@@ -19,7 +18,6 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
     TimelineComponent,
     HeaderComponent,
     PostsTimelineComponent,
-    CommentsCollectionComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +35,6 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
     TimelineComponent,
     HeaderComponent,
     PostsTimelineComponent,
-    CommentsCollectionComponent,
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
