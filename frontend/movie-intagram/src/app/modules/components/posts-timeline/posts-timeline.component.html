@@ -1,61 +1,48 @@
-<div class="row" *ngFor="let item of postsListas; let i = index">
+<div class="row" *ngFor="let item of testes;">
   <div class="col-md-12">
-    <div class="card horizontal">
-      <div class="card-image">
-        <img src="{{ item.picture }}" alt="{{item.user}}">
-      </div>
-      <div class="card-stacked">
-        <div class="card-content">
-          <div class="row">
-            <div class="col s12">
-              <div class="col s5">
-                <img src="assets/img/superman.png" alt="superman" class="circle responsive-img image-tabs">
-                <span class="title-visualizar">superman</span>
-              </div>
-              <div class="col s7 titulo-post">
-                {{item.title}}
-              </div>
+    <div class="card mb-3">
+      <div class="row g-0">
+        <div class="col-md-6">
+          <img src="{{ item.picture }}" alt="{{item.user}}">
+        </div>
+        <div class="col-md-6">
+          <div class="row mt-3 mb-2">
+            <div class="d-flex">
+              <div class="p-2"><img src="assets/img/superman.png" alt="superman" class="rounded-circle circle-coments"></div>
+              <div class="p-2"><span class="title-visualizar">superman</span></div>
+              <div class="ml-auto p-2"><span>{{item.title}}</span></div>
             </div>
           </div>
           <div class="comments">
-            <div class="row">
-              <div class="col-md-12">
-                <!-- <div class="col s4">
-                  <a href="">
+            <div class="row mt-3 mb-1 ml-1">
+              <div class="d-flex">
+                <div class="p-2">
+                  <a (click)="likeHeartPost(item)">
                     <i class="far fa-heart" title="{{usersLikes}}"></i>
-                    <span>{{qtdCurtidas}}</span>
                   </a>
+                  <span class="mr-1"></span>{{item?.likes?.length}}
                 </div>
-                <div class="col s4">
-                  <a href=""><i class="far fa-comment-alt"></i><span>{{qtdComentarios}}</span></a>
-                </div> -->
+                <div class="p-2">
+                  <span class="mr-1"><i class="fas fa-comment-alt-lines"></i></span>{{ item?.coments?.length }}
+                </div>
               </div>
             </div>
 
             <div class="row" >
               <div class="col-md-12">
-                <!-- <ul class="collection" *ngFor="let itemComments of listCommentsByPost; let i = index">
-                  <li class="collection-item avatar">
-                    <div class="row">
-                      <div class="col s12">
-                        <div class="col s5">
-                          <img src="assets/img/{{itemComments.user}}.png" alt="{{itemComments.user}}" class="circle responsive-img image-tabs">
-                          <span class="title-visualizar">{{itemComments.user}}</span>
-                        </div>
-                        <div class="col s7 titulo-post">
-                          {{itemComments.comment}}
-                        </div>
-                      </div>
-                    </div>
+                <ul class="list-group"*ngFor="let itemComments of item?.coments">
+                  <li class="list-group-item d-flex justify-content-between mr-1 mb-1">
+                      <div class="p-2"><img src="assets/img/{{itemComments?.user}}.png" alt="{{itemComments.user}}" class="rounded-circle small-circle"></div>
+                      <div class="p-2"><span class="title-visualizar">{{itemComments?.user}}</span></div>
+                      <div class="ml-auto p-2"><span>{{itemComments?.comment}}</span></div>
                   </li>
-                </ul> -->
+                </ul>
               </div>
             </div>
+            <div class="card-action">
+              <a href="#">This is a link</a>
+            </div>
           </div>
-
-        </div>
-        <div class="card-action">
-          <a href="#">This is a link</a>
         </div>
       </div>
     </div>

@@ -21,7 +21,7 @@ export class TimelineComponent implements OnInit {
   qtdCurtidas!: number;
 
   // tslint:disable-next-line: no-inferrable-types
-  @Input() loading: boolean = false;
+  loading: boolean = false;
 
   constructor(
     private movieService: MovieService

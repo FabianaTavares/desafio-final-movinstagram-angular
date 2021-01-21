@@ -34,7 +34,7 @@
                 <ul class="nav nav-pills flex-column flex-sm-row alinhar">
                   <li class="nav-item" *ngFor="let item of listAtivos; let i = index"
                       [class.active]="activeElement === i"
-                      (click)="selectTab(i, item.id)">
+                      (click)="selectTab(i, item.user)">
                     <a class="flex-sm-fill text-sm-center nav-link alinkdesabled">
                       <img src="{{ item.img }}" alt="{{item.user}}"  class="rounded-circle small-circle">
                         <span class="title-visualizar">{{item.user}}</span>

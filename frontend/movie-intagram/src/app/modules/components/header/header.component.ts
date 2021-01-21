@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { TabsetComponent } from 'ngx-bootstrap/tabs';
+import { BestFriendsDTO } from '../../models/movie-best-friends.model';
 import { MovieService } from '../../services/movie.service';
 
 @Component({
@@ -22,6 +23,7 @@ export class HeaderComponent implements OnInit {
   @ViewChild('staticTabs', { static: false }) staticTabs!: TabsetComponent;
 
   activeElement: number = 1;
+  userSelected!: BestFriendsDTO;
 
   listAtivos: any[] = [
     { id:1, img: "assets/img/batman.png", user: "batman" },
@@ -37,9 +39,13 @@ export class HeaderComponent implements OnInit {
 
   }
 
-  selectTab(index: number, id: number) {
+  selectTab(index: number, user: any) {
     this.activeElement = index;
+    console.log(user);
     //verificar como vou linkar pra mudar o usuário logado.
+    console.log(this.activeElement);
+    this.userSelected = user;
+    this.movieService.setUsuarioLogadoEvent(user);
   }
 
 }
