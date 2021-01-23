@@ -3,18 +3,17 @@ import { LikesDTO } from './../models/movie-likes.model';
 import { CommentsDTO } from './../models/movie-comments.model';
 import { environment } from './../../../environments/environment';
 import { PostsDTO } from './../models/movie-posts.model';
-import { EventEmitter, Injectable, Output } from '@angular/core';
-import { Observable, forkJoin, from, of, combineLatest } from 'rxjs';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { tap, delay, take, map, mergeMap, switchMap, toArray, flatMap } from 'rxjs/operators';
-import { Params } from '@angular/router';
+import { Injectable } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { delay } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MovieService {
 
-  @Output() usuarioLogado: EventEmitter<string> = new EventEmitter();
+  private usuarioLogado$: Subject<string> = new Subject<string>();
 
   constructor(
     private http: HttpClient
@@ -22,12 +21,11 @@ export class MovieService {
 
   setUsuarioLogadoEvent(valor: string | undefined){
     console.log(valor);
-    this.usuarioLogado.emit(valor);
+    this.usuarioLogado$.next(valor);
   }
 
   getUsuarioLogadoEvent(){
-    console.log(this.usuarioLogado);
-    return this.usuarioLogado;
+    return this.usuarioLogado$.asObservable();
   }
 
   /**

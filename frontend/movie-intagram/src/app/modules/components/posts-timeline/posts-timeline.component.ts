@@ -1,5 +1,5 @@
-import { forkJoin } from 'rxjs';
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { forkJoin, Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 import { CommentsDTO } from '../../models/movie-comments.model';
 import { LikesDTO } from '../../models/movie-likes.model';
 import { PostsDTO } from '../../models/movie-posts.model';
@@ -19,15 +19,24 @@ export class PostsTimelineComponent implements OnInit {
   bestfriend: BestFriendsDTO[] = [];
   loading: boolean = false;
   testes: PostComComentariosDTO[] = [];
-  userSelected!: string;
+  userSelected: string = '';
+  subscription!: Subscription;
 
   usersLikes!: number;
   qtdCurtidas!: number;
   qtdComentarios!: number;
+  public isActive:boolean = false;
 
   constructor(
     private movieService: MovieService
-  ) { }
+  ) {
+    this.subscription = this.movieService.getUsuarioLogadoEvent().subscribe(
+      (usuarioTab: any) => {
+        console.log(usuarioTab);
+        this.userSelected = usuarioTab;
+      }
+    );
+   }
 
   ngOnInit(): void {
     this.recuperaListaPosts();
@@ -52,7 +61,7 @@ export class PostsTimelineComponent implements OnInit {
           postsMap.get(coment.postId)?.coments?.push(coment);
         }
         for (const like of likes) {
-          postsMap.get(like.postId)?.likes?.push(like);
+          postsMap.get(like.postId)?.likes?.push(like.user);
         }
 
         this.testes = Array.from(postsMap.values());
@@ -63,17 +72,28 @@ export class PostsTimelineComponent implements OnInit {
     );
   }
 
-  likeHeartPost(item: PostComComentariosDTO){
-    console.log('oi');
+  userJaCurtiu(item: PostComComentariosDTO): boolean {
     console.log(item);
     console.log(this.userSelected);
+    console.log(item.likes.indexOf(this.userSelected));
+    return item.likes.indexOf(this.userSelected) === -1 ? true : false;
+  }
 
-    this.movieService.getUsuarioLogadoEvent().subscribe(
-      (item: any) => {
-        console.log(item);
-        //this.selectedNavItem(item)
-      }
-    );
+  likeHeartPost(item: PostComComentariosDTO){
+    this.isActive = !this.isActive;
+    const index = item?.likes?.indexOf(this.userSelected);
+    console.log(index);
+    if (index == -1) {
+      item.likes.push(this.userSelected);
+      //this.isActive = true;
+    } else {
+      item.likes.splice(index, 1);
+      //this.isActive = false;
+    }
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
 }

@@ -18,3 +18,13 @@
   width: 60px;
   height: 60px;
 }
+
+.fa-heart {
+  color: #ccc;
+  cursor: pointer;
+}
+
+.fa-heart.active {
+  color: red;
+  cursor: pointer;
+}

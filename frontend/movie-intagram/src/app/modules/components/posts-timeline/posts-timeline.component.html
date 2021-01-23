@@ -17,8 +17,16 @@
             <div class="row mt-3 mb-1 ml-1">
               <div class="d-flex">
                 <div class="p-2">
-                  <a (click)="likeHeartPost(item)">
-                    <i class="far fa-heart" title="{{usersLikes}}"></i>
+                  <a
+                    (click)="likeHeartPost(item)"
+                    [class.checked]="userJaCurtiu(item)"
+                    title="{{usersLikes}}">
+                   <!--  <i class="far fa-heart" [class.checked]="userJaCurtiu(item)"></i> -->
+
+                    <i class="fa">
+                      {{userJaCurtiu(item) ? 'far fa-heart' : 'fas fa-heart'}}
+                    </i>
+
                   </a>
                   <span class="mr-1"></span>{{item?.likes?.length}}
                 </div>

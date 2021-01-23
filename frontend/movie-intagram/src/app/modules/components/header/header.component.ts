@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
   @ViewChild('staticTabs', { static: false }) staticTabs!: TabsetComponent;
 
   activeElement: number = 1;
-  userSelected!: BestFriendsDTO;
+  userSelected: string = '';
 
   listAtivos: any[] = [
     { id:1, img: "assets/img/batman.png", user: "batman" },
@@ -39,11 +39,8 @@ export class HeaderComponent implements OnInit {
 
   }
 
-  selectTab(index: number, user: any) {
+  selectTab(index: number, user: string) {
     this.activeElement = index;
-    console.log(user);
-    //verificar como vou linkar pra mudar o usuário logado.
-    console.log(this.activeElement);
     this.userSelected = user;
     this.movieService.setUsuarioLogadoEvent(user);
   }

@@ -4,5 +4,5 @@ import { CommentsDTO } from "./movie-comments.model";
 
 export interface PostComComentariosDTO extends PostsDTO {
   coments: CommentsDTO[];
-  likes: LikesDTO[];
+  likes: string[];
 }
