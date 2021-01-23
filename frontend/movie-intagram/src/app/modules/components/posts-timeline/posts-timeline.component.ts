@@ -6,6 +6,7 @@ import { PostsDTO } from '../../models/movie-posts.model';
 import { MovieService } from '../../services/movie.service';
 import { PostComComentariosDTO } from '../../models/movie-posts-coments.model';
 import { BestFriendsDTO } from './../../models/movie-best-friends.model';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-posts-timeline',
   templateUrl: './posts-timeline.component.html',
@@ -21,6 +22,7 @@ export class PostsTimelineComponent implements OnInit {
   testes: PostComComentariosDTO[] = [];
   userSelected: string = '';
   subscription!: Subscription;
+  formPostGroup!: FormGroup;
 
   usersLikes!: number;
   qtdCurtidas!: number;
@@ -28,11 +30,11 @@ export class PostsTimelineComponent implements OnInit {
   public isActive:boolean = false;
 
   constructor(
-    private movieService: MovieService
+    private movieService: MovieService,
+    private formBuilder: FormBuilder,
   ) {
     this.subscription = this.movieService.getUsuarioLogadoEvent().subscribe(
       (usuarioTab: any) => {
-        console.log(usuarioTab);
         this.userSelected = usuarioTab;
       }
     );
@@ -40,6 +42,17 @@ export class PostsTimelineComponent implements OnInit {
 
   ngOnInit(): void {
     this.recuperaListaPosts();
+    this.criarForm();
+  }
+
+   ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
+  criarForm(){
+    this.formPostGroup = this.formBuilder.group({
+    inputComent: ["", [Validators.required]]
+  });
   }
 
   recuperaListaPosts() {
@@ -73,27 +86,33 @@ export class PostsTimelineComponent implements OnInit {
   }
 
   userJaCurtiu(item: PostComComentariosDTO): boolean {
-    console.log(item);
-    console.log(this.userSelected);
-    console.log(item.likes.indexOf(this.userSelected));
-    return item.likes.indexOf(this.userSelected) === -1 ? true : false;
+    return item.likes.indexOf(this.userSelected) === -1 ? false : true;
   }
 
   likeHeartPost(item: PostComComentariosDTO){
-    this.isActive = !this.isActive;
+    this.isActive = !this.isActive; // necessário?
     const index = item?.likes?.indexOf(this.userSelected);
-    console.log(index);
     if (index == -1) {
       item.likes.push(this.userSelected);
-      //this.isActive = true;
     } else {
       item.likes.splice(index, 1);
-      //this.isActive = false;
     }
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
+  salvar(item: PostComComentariosDTO){
+    const comentario = this.formPostGroup.get("inputComent")!.value;
+    this.addComentario(item, comentario);
+    this.formPostGroup.reset();
+  }
+
+  addComentario(item: PostComComentariosDTO, textoComentario: string){
+    item.coments.push({
+      id: "",
+      postId: item.id,
+      comment: textoComentario,
+      user: this.userSelected,
+    });
+
   }
 
 }

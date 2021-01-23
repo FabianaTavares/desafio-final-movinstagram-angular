@@ -1,3 +1,4 @@
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
@@ -25,6 +26,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
     TooltipModule.forRoot(),
     ProgressbarModule.forRoot(),
     TabsModule.forRoot(),
+    ReactiveFormsModule
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

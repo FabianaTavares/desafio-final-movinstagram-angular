@@ -20,7 +20,6 @@ export class MovieService {
   ) { }
 
   setUsuarioLogadoEvent(valor: string | undefined){
-    console.log(valor);
     this.usuarioLogado$.next(valor);
   }
 

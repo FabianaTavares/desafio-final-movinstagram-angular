@@ -22,9 +22,32 @@
 .fa-heart {
   color: #ccc;
   cursor: pointer;
+  user-select: none;
 }
 
-.fa-heart.active {
+.fa-heart.fill {
   color: red;
   cursor: pointer;
+}
+
+.coment {
+  margin-top: 12px;
+  display: flex;
+  align-items: baseline;
+}
+
+.form {
+  margin-top: 16px;
+  display: flex;
+  align-items: stretch;
+}
+
+.input[type="text"] {
+  flex: 1;
+  padding: 4px;
+  margin-right: 8px;
+}
+
+.input {
+  font-size: 14px;
 }

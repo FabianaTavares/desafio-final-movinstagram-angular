@@ -37,7 +37,6 @@ export class TimelineComponent implements OnInit {
   recuperaListaPosts() {
     this.movieService.getPostsList().subscribe(
       (response) => {
-        console.log(response);
         this.postsListas = response;
         this.qtdPosts = this.postsListas.length;
         this.loading = false;

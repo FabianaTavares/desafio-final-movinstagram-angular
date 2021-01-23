@@ -16,17 +16,19 @@
           <div class="comments">
             <div class="row mt-3 mb-1 ml-1">
               <div class="d-flex">
-                <div class="p-2">
+                <div class="p-2 mb-2">
                   <a
                     (click)="likeHeartPost(item)"
                     [class.checked]="userJaCurtiu(item)"
-                    title="{{usersLikes}}">
-                   <!--  <i class="far fa-heart" [class.checked]="userJaCurtiu(item)"></i> -->
+                    title="{{item.likes}}">
 
-                    <i class="fa">
-                      {{userJaCurtiu(item) ? 'far fa-heart' : 'fas fa-heart'}}
-                    </i>
+                   <span *ngIf="userJaCurtiu(item) === true; else naoCurtiu">
+                     <i class="fas fa-heart fa-heart-1x fill"></i>
+                   </span>
 
+                    <ng-template #naoCurtiu>
+                      <i class="far fa-heart fa-heart-1x"></i>
+                    </ng-template>
                   </a>
                   <span class="mr-1"></span>{{item?.likes?.length}}
                 </div>
@@ -47,8 +49,19 @@
                 </ul>
               </div>
             </div>
-            <div class="card-action">
-              <a href="#">This is a link</a>
+            <div class="row">
+              <div class="col-md-12">
+                <form [formGroup]="formPostGroup">
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" formControlName="inputComent" placeholder="Inserir Comentário" />
+                    <div class="input-group-append">
+                      <button class="btn btn-primary" type="submit" [disabled]="!formPostGroup.valid" (click)="salvar(item)">
+                      enviar
+                    </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>
