@@ -23,7 +23,7 @@ npm install -g json-server
 2. para rodar o json server:
 
 ```
-json-server --watch allPosts.json
+json-server --watch allPosts.json --port 3001
 ```
 
 ## Ambiente de Produção
