@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { TabsetComponent } from 'ngx-bootstrap/tabs';
-import { BestFriendsDTO } from '../../models/movie-best-friends.model';
+
 import { MovieService } from '../../services/movie.service';
 
 @Component({

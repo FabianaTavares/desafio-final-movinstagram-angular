@@ -1,12 +1,13 @@
-import { BestFriendsDTO } from './../models/movie-best-friends.model';
-import { LikesDTO } from './../models/movie-likes.model';
-import { CommentsDTO } from './../models/movie-comments.model';
-import { environment } from './../../../environments/environment';
-import { PostsDTO } from './../models/movie-posts.model';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
 import { delay } from 'rxjs/operators';
+
+import { environment } from './../../../environments/environment';
+import { BestFriendsDTO } from './../models/movie-best-friends.model';
+import { CommentsDTO } from './../models/movie-comments.model';
+import { LikesDTO } from './../models/movie-likes.model';
+import { PostsDTO } from './../models/movie-posts.model';
 
 @Injectable({
   providedIn: 'root'

@@ -1,9 +1,9 @@
+import { Component, OnInit } from '@angular/core';
+
+import { MovieService } from '../../services/movie.service';
 import { CommentsDTO } from './../../models/movie-comments.model';
 import { LikesDTO } from './../../models/movie-likes.model';
 import { PostsDTO } from './../../models/movie-posts.model';
-import { Component, Input, OnInit } from '@angular/core';
-import { MovieService } from '../../services/movie.service';
-import { QtdsDTO } from '../../models/movie-qtds.model';
 
 @Component({
   selector: 'app-timeline',

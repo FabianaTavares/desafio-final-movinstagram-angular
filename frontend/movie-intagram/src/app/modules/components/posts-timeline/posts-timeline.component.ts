@@ -1,12 +1,14 @@
-import { forkJoin, Subscription } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { forkJoin, Subscription } from 'rxjs';
+
 import { CommentsDTO } from '../../models/movie-comments.model';
 import { LikesDTO } from '../../models/movie-likes.model';
+import { PostComComentariosDTO } from '../../models/movie-posts-coments.model';
 import { PostsDTO } from '../../models/movie-posts.model';
 import { MovieService } from '../../services/movie.service';
-import { PostComComentariosDTO } from '../../models/movie-posts-coments.model';
 import { BestFriendsDTO } from './../../models/movie-best-friends.model';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+
 @Component({
   selector: 'app-posts-timeline',
   templateUrl: './posts-timeline.component.html',
